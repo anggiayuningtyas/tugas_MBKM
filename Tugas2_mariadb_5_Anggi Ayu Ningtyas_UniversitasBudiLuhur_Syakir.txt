@@ -1,0 +1,147 @@
+
+============================================================================
+Microsoft Windows [Version 10.0.19043.2006]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Anggi Ayu Ningtyas>cd/
+
+C:\>cd xampp\mysql\bin
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.18-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use db_pegawai
+Database changed
+MariaDB [db_pegawai]> show tables;
++---------------------+
+| Tables_in_db_pegawai |
++---------------------+
+| divisi              |
+| pegawai             |
++---------------------+
+2 rows in set (0.000 sec)
+
+=== Menambahkan data baru pada tabel divisi ===
+MariaDB [db_pegawai]> insert into divisi(name) value
+    ->('Sekertaris'),
+    ->('Keuangan'),
+    ->('Produksi'),
+    ->('Pemasaran');
+Query OK, 4 rows affected (0.001 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+=== Menambahkan data baru pada tabel pegawai ===
+MariaDB [db_pegawai]> insert into pegawai(nip, name, gender, tmp_lahir, tgl_lahir, divisi_id, address) values
+    -> ('P01', 'Asher', 'Laki-laki', 'Aceh', '2001-02-4', 1, 'Jalan Cideng 3'),
+    -> ('P02', 'Aidan', 'Laki-laki', 'Maluku', '2001-3-5', 1, 'Jalan Ciliwung 4'),
+    -> ('P03', 'Aquila', 'Perempuan', 'Bandung', '1998-01-29', 2, 'Jalan Malio 1'),
+    -> ('P04', 'Damon', 'Laki-laki', 'Sumedang', '1997-05-09', 2, 'Jalan Singasari'),
+    -> ('P05', 'Craney', 'Perempuan', 'Medan', '2003-03-04', 3, 'Jalan kKembang'),
+    -> ('P06', 'Anto', 'Laki-laki', 'Lombok', '1997-09-15', 3, 'Jalan Monas Raya'),
+    -> ('P07', ' Kayana', 'Perempuan', 'Surabaya', '1992-09-10', 4, 'Jalan Tugu Tani'),
+    -> ('P08', 'Kaivan', 'Laki-laki', 'Surakarta', '2001-10-07', 4, 'Jalan Grand'),
+    -> ('P09', 'Nafeda', 'Laki-laki', 'Banyumas', '1998-08-10', 1, 'Jalan Puri'),
+    -> ('P10', 'Naaman', 'Perempuan', 'Cilacap', '2001-12-06', 2, 'Jalan Ahmad yani'),
+    -> ('P11', 'Pramudya', 'Laki-laki', 'Wonogiri', '2001-08-03', 3, 'Jalan Wonigiri Merdeka'),
+    -> ('P12', ' Alesya', 'Perempuan', 'Papua', '2000-03-11', 4, 'Jalan Sorong'),
+    -> ('P13', 'Kayshifa', 'Perempuan', 'Jogja', '1999-11-1', 4, 'Jalan Malioboro'),
+    -> ('P14', 'Niesha', 'Perempuan', 'Bali', '2000-10-28', 1, 'Jalan Dewata'),
+    -> ('P15', 'Khandra', 'Laki-laki', 'Bandung', '1998-05-30', 2, 'Jalan Bandung Raya'),
+    -> ('P16', 'Gudytha', 'Perempuan', 'Jakarta', '2000-06-23', 3, 'Jalan Jakarta '),
+    -> ('P17', 'Nevan', 'Laki-laki', 'Riau', '2001-05-12', 1, 'Jalan Kepri'),
+    -> ('P18', 'Ravindra', 'Laki-laki', 'Palembang', '2000-07-31', 3, 'Jalan Jembatan Raya'),
+    -> ('P19', 'Abigail', 'Laki-laki', 'Gombong', '2000-04-19', 2, 'Jalan Tugu Mulia');
+Query OK, 20 rows affected (0.032 sec)
+Records: 19  Duplicates: 0  Warnings: 0
+
+=== Menampilkan seluruh data pada tabel divisi ===
+MariaDB [dbpegawai]> select * from divisi;
++----+-----------+
+| id | name      |
++----+-----------+
+|  4 | Pemasaran |
+|  3 | Produksi  |
+|  2 | Keuangan  |
+|  1 | Sekertaris|
++----+-----------+
+4 rows in set (0.001 sec)
+
+=== Menampilkan seluruh data pada tabel pegawai ===
+MariaDB [db_pegawai]> select * from pegawai;
++----+-----+---------------+-----------+------------+------------+-----------+------------------------+
+| id | nip | name          | gender    | tmp_lahir  | tgl_lahir  | divisi_id | address                |
++----+-----+---------------+-----------+------------+------------+-----------+------------------------+
+|  1 | P01 | Asher         | Laki-laki | Aceh       | 2001-02-4  |         1 | Jalan Cideng   3       |
+|  2 | P02 | Aidan         | Laki-laki | Maluku     | 2001-3-5   |         1 | Jalan Ciliwung 4       |
+|  3 | P03 | Aquila        | Perempuan | Bandung    | 1998-01-29 |         2 | Jalan Malio 1          |
+|  4 | P04 | Damon         | Laki-laki | Sumedang   | 1997-05-09 |         3 | Jalan Singasari        |
+|  5 | P05 | Craney        | Perempuan | Medan      | 2003-03-04 |         3 | Jalan kKembang         |
+|  6 | P06 | Anto          | Laki-laki | Lombok     | 1992-09-10 |         4 | Jalan Monas Raya       |
+|  7 | P07 | Kayana        | Perempuan | Surabaya   | 1997-09-15 |         4 | Jalan Tugu Tani        |
+|  8 | P08 | Kaivan        | Laki-laki | Surakarta  | 2001-10-07 |         1 | Jalan Grand            |
+|  9 | P09 | Nafeda        | Laki-laki | Banyumas   | 1998-08-10 |         2 | Jalan Puri             |
+| 10 | P10 | Naaman        | Perempuan | Cilacap    | 2001-12-06 |         3 | Jalan Ahmad yani       |
+| 11 | P11 | Pramudya      | Laki-laki | Wonogiri   | 2001-08-03 |         4 | Jalan Wonigiri Merdeka |
+| 12 | P12 | Alesya        | Perempuan | Papua      | 2000-03-11 |         4 | Jalan Sorong           |
+| 13 | P13 | Kayshifa      | Laki-laki | Jogja      | 1999-11-1  |         1 | Jalan Malioboro        |
+| 14 | P14 | Niesha        | Laki-laki | Bali       | 2000-10-28 |         2 | Jalan Dewata           |
+| 15 | P15 | Khandra       | Laki-laki | Bandung    | 1998-05-30 |         3 | Jalan Bandung Raya     |
+| 16 | P16 | Gudytha       | Perempuan | Jakarta    | 2000-06-23 |         1 | Jalan Jakarta          |
+| 17 | P17 | Nevan         | Laki-laki | Riau       | 001-05-12  |         3 | Jalan Kepri            |
+| 18 | P18 | Ravindra      | Laki-laki | Palembang  | 2000-07-31 |         2 | Jalan Jembatan Raya    |
+| 19 | P19 | Abigail       | Perempuan | Gombong    | 2000-04-19 |         1 | Jalan Tugu Mulia       |
++----+-----+---------------+-----------+------------+------------+-----------+------------------------+
+19 rows in set (0.001 sec)
+
+=== Mengubah 2 data pegawai ===
+MariaDB [db_pegawai]> update pegawai set
+    -> tmp_lahir='Ujung Kulon',
+    -> address='Jalan Ujung Kulon',
+    -> tgl_lahir='2000-07-09',
+    -> where id=1;
+Query OK, 1 row affected (0.032 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [db_pegawai]> update pegawai set
+    -> tmp_lahir='Suka Maju',
+    -> address='Jalan Papua Maju',
+    -> tgl_lahir='1999-04-09'
+    -> where id=19;
+Query OK, 1 row affected (0.050 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+=== Menghapus 2 data terakhir dari tabel pegawai ===
+MariaDB [db_pegawai]> delete from pegawai order by id desc limit 2;
+Query OK, 2 rows affected (0.032 sec)
+
+=== Menampilkan seluruh data pada tabel pegawai setelah dirubah ===
+MariaDB [db_pegawai]> select * from pegawai;
++----+-----+---------------+-----------+------------+------------+-----------+------------------------+
+| id | nip | name          | gender    | tmp_lahir  | tgl_lahir  | divisi_id | address                |
++----+-----+---------------+-----------+------------+------------+-----------+------------------------+
+|  1 | P01 | Asher         | Laki-laki | Ujung Kulon| 2001-02-4  |         1 | Jalan Ujung Kulon      |
+|  2 | P02 | Aidan         | Laki-laki | Maluku     | 2001-3-5   |         1 | Jalan Ciliwung 4       |
+|  3 | P03 | Aquila        | Perempuan | Bandung    | 1998-01-29 |         2 | Jalan Malio 1          |
+|  4 | P04 | Damon         | Laki-laki | Sumedang   | 1997-05-09 |         3 | Jalan Singasari        |
+|  5 | P05 | Craney        | Perempuan | Medan      | 2003-03-04 |         3 | Jalan kKembang         |
+|  6 | P06 | Anto          | Laki-laki | Lombok     | 1992-09-10 |         4 | Jalan Monas Raya       |
+|  7 | P07 | Kayana        | Perempuan | Surabaya   | 1997-09-15 |         4 | Jalan Tugu Tani        |
+|  8 | P08 | Kaivan        | Laki-laki | Surakarta  | 2001-10-07 |         1 | Jalan Grand            |
+|  9 | P09 | Nafeda        | Laki-laki | Banyumas   | 1998-08-10 |         2 | Jalan Puri             |
+| 10 | P10 | Naaman        | Perempuan | Cilacap    | 2001-12-06 |         3 | Jalan Ahmad yani       |
+| 11 | P11 | Pramudya      | Laki-laki | Wonogiri   | 2001-08-03 |         4 | Jalan Wonigiri Merdeka |
+| 12 | P12 | Alesya        | Perempuan | Papua      | 2000-03-11 |         4 | Jalan Sorong           |
+| 13 | P13 | Kayshifa      | Laki-laki | Jogja      | 1999-11-1  |         1 | Jalan Malioboro        |
+| 14 | P14 | Niesha        | Laki-laki | Bali       | 2000-10-28 |         2 | Jalan Dewata           |
+| 15 | P15 | Khandra       | Laki-laki | Bandung    | 1998-05-30 |         3 | Jalan Bandung Raya     |
+| 16 | P16 | Gudytha       | Perempuan | Jakarta    | 2000-06-23 |         1 | Jalan Jakarta          |
+| 17 | P17 | Nevan         | Laki-laki | Riau       | 001-05-12  |         3 | Jalan Kepri            |
++----+-----+---------------+-----------+------------+------------+-----------+------------------------+
+17 rows in set (0.001 sec)
