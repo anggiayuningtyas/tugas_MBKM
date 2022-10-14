@@ -1,0 +1,30 @@
+-- masuk ke database db_pos --
+
+    USE db_pos;
+
+-- no 1. buat inner join 4 table --
+-- table kantor: alamat, no_wa, tempat_tinggal --
+-- table karyawan: nama_panggil, email, jabatan --
+-- table pelanggan: nama_pelanggan, no_wa, kota_tinggal --
+-- table bayar: tanggal_bayar, jumlah_bayar --
+
+    SELECT c.nama_pelanggan, c.no_wa, c.kota_tinggal,
+    p.bayar, p.total, e.nama_panggil, e.email, e.jabatan,
+    o.alamat, o.no_wa, o.tempat_tinggal FROM pelanggan c
+    INNER JOIN bayar p ON p.no_pelanggan = c.no_pelanggan
+    INNER JOIN karyawan e ON e.no_karyawan = c.no_karyawan
+    INNER JOIN kantor o ON o.kode_kantor = e.kode_kantor;
+
+-- no 2 buat tabel viewnya: pelanggan_vw --
+
+    CREATE VIEW pelanggan_vw AS
+    SELECT c.nama_pelanggan, c.no_wa, c.kota_tinggal,
+    p.tanggal_bayar, p.jumlah_bayar, e.nama_panggil, e.email, e.jabatan,
+    o.alamat, o.no_wa, o.tempat_tinggal AS kota FROM pelanggan c
+    INNER JOIN bayar p ON p.nomor_pelanggan = c.nomor_pelanggan
+    INNER JOIN karyawan e ON e.nomor_karyawan = c.no_karywan
+    INNER JOIN kantor o ON o.kode_kantor = e.kode_kantor;
+
+-- tampilkan table view pelanggan_vw --
+
+    SELECT * FROM pelanggan_vw;
