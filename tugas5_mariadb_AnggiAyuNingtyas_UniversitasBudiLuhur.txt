@@ -1,0 +1,22 @@
+
+ANGGI AYU NINGTYAS 
+MariaDB-5
+UNIVERSITAS BUDI LUHUR
+
+use pos;
+SELECT employees.firstName, employees.lastName,employees.email,
+employees.jobTitle, offices.phone, offices.city, offices.addressLine1
+FROM employees INNER JOIN offices ON offices.officeCode = employees.officeCode;
+-- INNER JOIN TABLE employess (4 field bebas) dengan offices (3 field bebas) 
+SELECT emplys.firstName, emplys.lastName,emplys.email,
+emplys.jobTitle, ofc.phone, ofc.city, ofc.addressLine1
+FROM employees emplys INNER JOIN offices ofc ON ofc.officeCode = emplys.officeCode;
+-- INNER JOIN TABLE employees (4 field bebas) dengan offices (3 field bebas) dengan mengaliaskan tablenya
+SELECT emplys.firstName, emplys.lastName,emplys.email,
+emplys.jobTitle, ofc.phone, ofc.city, ofc.addressLine1
+FROM employees emplys LEFT JOIN offices ofc ON ofc.officeCode = emplys.officeCode;
+-- LEFT JOIN TABLE employees (4 field bebas) dengan offices (3 field bebas) dengan mengaliaskan tabelnya
+SELECT emplys.firstName, emplys.lastName,emplys.email,
+emplys.jobTitle, ofc.phone, ofc.city, ofc.addressLine1
+FROM employees emplys RIGHT JOIN offices ofc ON ofc.officeCode = emplys.officeCode;
+-- RIGHT JOIN TABLE employees (4 field bebas) dengan offices (3 field bebas) dengan mengaliaskan tabelnya
